@@ -9,10 +9,10 @@ public class Bloqueado implements IStateCelular
     private int tmpPassword;
     private int password = 123456; //default pwd
     private int timeblocked=15000; // tiempo a bloquear
+
     public int getPassword() {
         return password;
     }
-
     public void setPassword(int password) {
         this.password = password;  // set password
     }
@@ -32,7 +32,7 @@ public class Bloqueado implements IStateCelular
             }else {
                 count++;
                 currentTime=count==3? new Date().getTime():0;
-                String tmpMsg=count==3?"[time to wait]"+timeblocked:"";
+                String tmpMsg=count==3?"[time to wait]"+(timeblocked/1000)+"Segundos":"";
                 System.out.println("Intento #"+count+ "Password Incorrecto.... "+tmpMsg);
             }
         }else{
