@@ -1,11 +1,10 @@
-package proxy.basic;
+package proxy.example;
 
 public class Client {
 
     public static void main (String [] args){
         // create proxy
-        ISubject proxy = new Proxy("filter asdasd");
-
+        IServer proxy = new Proxy(new Request("youtube",80));
         proxy.request();
     }
 }

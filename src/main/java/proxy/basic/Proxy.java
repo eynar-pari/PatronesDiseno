@@ -2,15 +2,18 @@ package proxy.basic;
 
 public class Proxy implements ISubject {
     private String attribute;
-    private RealSubject realSubject;
+    private RealSubject realSubject = null;
 
     public Proxy (String attribute1){
         this.attribute= attribute1;
-        realSubject = new RealSubject(attribute);
+
     }
 
     @Override
     public void request() {
+
+        if (realSubject == null)
+            realSubject = new RealSubject(attribute);
 
         //some conditions //filters
         if (attribute.contains("filter")) {
